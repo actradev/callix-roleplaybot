@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .countdown-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .countdown div {
+            margin: 0 10px;
+        }
+
+        .countdown span {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .label {
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <div id="countdown" class="countdown">
+            <div>
+                <span id="days">0</span>
+                <div class="label">Days</div>
+            </div>
+            <div>
+                <span id="hours">0</span>
+                <div class="label">Hours</div>
+            </div>
+            <div>
+                <span id="minutes">0</span>
+                <div class="label">Minutes</div>
+            </div>
+            <div>
+                <span id="seconds">0</span>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown logic
+        const countdown = () => {
+            const endDate = new Date('2024-07-20T00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+
+            if (timeLeft < 0) {
+                clearInterval(timer);
+                document.getElementById('countdown').innerHTML = 'Countdown Finished';
+            }
+        };
+
+        countdown();
+        const timer = setInterval(countdown, 1000);
+    </script>
+</body>
+</html>
