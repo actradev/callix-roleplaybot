@@ -3,95 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Bot Commands</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            margin: 0;
         }
 
-        .countdown-container {
-            text-align: center;
+        .commands-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
         }
 
-        .countdown {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .countdown div {
-            margin: 0 10px;
-        }
-
-        .countdown span {
-            display: block;
-            font-size: 2em;
-            font-weight: bold;
+        .commands-container h1 {
+            text-align: center;
             color: #333;
         }
 
-        .label {
-            font-size: 0.8em;
+        .command {
+            margin-bottom: 15px;
+        }
+
+        .command h2 {
+            font-size: 1.2em;
+            color: #007BFF;
+        }
+
+        .command p {
+            font-size: 1em;
             color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .commands-container {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .command h2 {
+                font-size: 1em;
+            }
+
+            .command p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="countdown-container">
-        <div id="countdown" class="countdown">
-            <div>
-                <span id="days">0</span>
-                <div class="label">Days</div>
-            </div>
-            <div>
-                <span id="hours">0</span>
-                <div class="label">Hours</div>
-            </div>
-            <div>
-                <span id="minutes">0</span>
-                <div class="label">Minutes</div>
-            </div>
-            <div>
-                <span id="seconds">0</span>
-                <div class="label">Seconds</div>
-            </div>
+    <div class="commands-container">
+        <h1>Bot Commands</h1>
+        
+        <div class="command">
+            <h2>Command: /add_update</h2>
+            <p>Description: Adds an update for a specific version. Usage: `/add_update version update_details`.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /add_bug</h2>
+            <p>Description: Adds a bug with a specific ID. Usage: `/add_bug bug_id bug_details`.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /remove_entry</h2>
+            <p>Description: Removes an update or bug. Usage: `/remove_entry entry_type entry_id`.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /show_all</h2>
+            <p>Description: Shows all updates and bugs.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /setup_civilian</h2>
+            <p>Description: Sets up the 'Civilian' role.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /setup_leo</h2>
+            <p>Description: Sets up the 'Law Enforcement Officer' role.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /setup_ems</h2>
+            <p>Description: Sets up the 'Emergency Medical Service' role.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /setup_fd</h2>
+            <p>Description: Sets up the 'Fire Department' role.</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /check_vitals</h2>
+            <p>Description: Checks the vitals of a specified player</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /do</h2>
+            <p>Send an interaction about what you are doing</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /me</h2>
+            <p>Send an interaction about what you are feeling</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /toggle_bodycam</h2>
+            <p>Toggle your bodycam status</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /toggle_dashcam</h2>
+            <p>Toggle your dashcam status</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /cuff</h2>
+            <p>Cuff a player</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /ziptie</h2>
+            <p>Ziptie a player</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /uncuff</h2>
+            <p>Uncuff a player</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /cut_ziptie</h2>
+            <p>Cut off a ziptie from a player</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /search_vehicle</h2>
+            <p>Search a player's vehicle</p>
+        </div>
+
+        <div class="command">
+            <h2>Command: /search_player</h2>
+            <p>Search a player</p>
         </div>
     </div>
-
-    <script>
-        // Countdown logic
-        const countdown = () => {
-            const endDate = new Date('2024-07-20T00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = endDate - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
-
-            if (timeLeft < 0) {
-                clearInterval(timer);
-                document.getElementById('countdown').innerHTML = 'Countdown Finished';
-            }
-        };
-
-        countdown();
-        const timer = setInterval(countdown, 1000);
-    </script>
 </body>
 </html>
