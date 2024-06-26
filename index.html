@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .commands-container {
@@ -21,8 +21,9 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
+            width: 90%; /* Adjusted width for better visibility */
             max-width: 800px;
+            overflow: auto; /* Added overflow for small screens */
         }
 
         .commands-container h1 {
@@ -32,11 +33,20 @@
 
         .command {
             margin-bottom: 15px;
+            border-bottom: 1px solid #ccc; /* Added a border between commands */
+            padding-bottom: 15px; /* Added padding bottom for spacing */
+        }
+
+        .command:last-child {
+            margin-bottom: 0; /* Remove margin bottom from last command */
+            border-bottom: none; /* Remove border from last command */
+            padding-bottom: 0; /* Remove padding bottom from last command */
         }
 
         .command h2 {
             font-size: 1.2em;
             color: #007BFF;
+            margin-bottom: 5px; /* Added margin bottom for spacing */
         }
 
         .command p {
